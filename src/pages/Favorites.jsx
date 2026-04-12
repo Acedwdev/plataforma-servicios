@@ -2,13 +2,18 @@ import { useEffect, useState } from "react"
 import { getFavorites, saveFavorites } from "../utils/localStorage"
 import ServiceCard from "../components/ServiceCard"
 
+/**
+ * Componente para gestionar y visualizar la lista de servicios marcados como favoritos.
+ */
 function Favorites() {
   const [favorites, setFavorites] = useState([])
 
+  // Recupera la lista de favoritos almacenada localmente al cargar el componente.
   useEffect(() => {
     setFavorites(getFavorites())
   }, [])
 
+  // Elimina un servicio específico tanto del estado de la vista como del almacenamiento persistente.
   const handleDelete = (id) => {
     const updated = favorites.filter(item => item.id !== id)
     setFavorites(updated)
@@ -21,6 +26,7 @@ function Favorites() {
         Mis Favoritos
       </h2>
 
+      {/* Control de flujo: muestra un aviso de lista vacía o el listado de tarjetas guardadas. */}
       {favorites.length === 0 ? (
         <p>No tienes favoritos aún</p>
       ) : (

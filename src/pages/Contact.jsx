@@ -1,5 +1,8 @@
 import { useState } from "react"
 
+/**
+ * Componente que gestiona el formulario de contacto, validaciones y estados de envío.
+ */
 function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -10,6 +13,7 @@ function Contact() {
   const [errors, setErrors] = useState({})
   const [success, setSuccess] = useState("")
 
+  // Sincroniza los cambios de los inputs con el estado del formulario.
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -17,6 +21,7 @@ function Contact() {
     })
   }
 
+  // Verifica que los campos cumplan con los requisitos mínimos de información y formato.
   const validate = () => {
     let newErrors = {}
 
@@ -37,6 +42,7 @@ function Contact() {
     return newErrors
   }
 
+  // Procesa el envío, gestiona errores de validación y restablece el formulario tras el éxito.
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -49,7 +55,6 @@ function Contact() {
       setErrors({})
       setSuccess("Mensaje enviado correctamente 🎉")
 
-      // limpiar formulario
       setForm({
         name: "",
         email: "",
@@ -64,6 +69,7 @@ function Contact() {
         Contáctanos
       </h2>
 
+      {/* Interfaz de usuario con renderizado condicional de mensajes de error y éxito. */}
       <form onSubmit={handleSubmit} className="space-y-4">
 
         <div>

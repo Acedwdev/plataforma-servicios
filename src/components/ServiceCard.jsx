@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
 
-function ServiceCard({ service, onDelete }) {
+/**
+ * Componente de interfaz reutilizable para mostrar un resumen del servicio y controles de gestión.
+ */
+function ServiceCard({ service, onDelete, onEdit, showAdminButtons = false }) {
   return (
-    <div className="border rounded-xl shadow p-4">
+    <div className="border rounded-xl shadow p-4 bg-white">
+      {/* Representación visual y títulos informativos del servicio. */}
       <img
         src={service.image}
         alt={service.name}
@@ -10,25 +14,34 @@ function ServiceCard({ service, onDelete }) {
       />
 
       <h3 className="text-lg font-bold mt-2">{service.name}</h3>
+      <p className="text-sm text-gray-600 line-clamp-2">{service.description}</p>
 
-      <p className="text-sm text-gray-600">
-        {service.description}
-      </p>
-
-      <div className="flex justify-between mt-4">
+      <div className="flex flex-wrap gap-2 justify-between mt-4">
+        {/* Navegación hacia la vista detallada del elemento. */}
         <Link
           to={`/service/${service.id}`}
-          className="bg-blue-500 text-white px-3 py-1 rounded"
+          className="bg-blue-500 text-white px-3 py-1 rounded text-sm flex-grow text-center"
         >
           Ver más
         </Link>
 
-        <button
-          onClick={() => onDelete(service.id)}
-          className="bg-red-500 text-white px-3 py-1 rounded"
-        >
-          Eliminar
-        </button>
+        {/* Bloque administrativo condicional: Activa las funciones de edición y borrado según el contexto. */}
+        {showAdminButtons && (
+          <div className="flex gap-2 w-full mt-2">
+            <button
+              onClick={() => onEdit(service)}
+              className="bg-yellow-500 text-white px-3 py-1 rounded text-sm flex-1"
+            >
+              Editar
+            </button>
+            <button
+              onClick={() => onDelete(service.id)}
+              className="bg-red-500 text-white px-3 py-1 rounded text-sm flex-1"
+            >
+              Eliminar
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

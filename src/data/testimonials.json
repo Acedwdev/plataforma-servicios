@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "María González",
+    "role": "Directora de Marketing",
+    "comment": "Excelente servicio, superaron todas mis expectativas. El equipo fue profesional y entregó resultados en tiempo récord.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=maria"
+  },
+  {
+    "id": 2,
+    "name": "Carlos Rodríguez",
+    "role": "CEO, TechStart",
+    "comment": "La mejor inversión para mi negocio. Gracias a sus servicios pudimos duplicar nuestras ventas en solo 6 meses.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=carlos"
+  },
+  {
+    "id": 3,
+    "name": "Ana Martínez",
+    "role": "Diseñadora Freelance",
+    "comment": "Altamente recomendable. Profesionalismo y calidad en cada detalle. Me ayudaron a llevar mi carrera al siguiente nivel.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=ana"
+  },
+  {
+    "id": 4,
+    "name": "Roberto Silva",
+    "role": "Emprendedor",
+    "comment": "Transformaron mi idea en realidad. El acompañamiento fue constante y los resultados hablan por sí solos.",
+    "stars": 4,
+    "avatar": "https://i.pravatar.cc/150?u=roberto"
+  },
+  {
+    "id": 5,
+    "name": "Lucía Torres",
+    "role": "Estudiante de Programación",
+    "comment": "Los cursos educativos son increíbles. La metodología es clara y muy práctica para quienes empezamos de cero.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=lucia"
+  },
+  {
+    "id": 6,
+    "name": "Daniel Peña",
+    "role": "Guía Turístico",
+    "comment": "La plataforma me ha permitido llegar a más viajeros. La gestión de servicios es intuitiva y eficiente.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=daniel"
+  },
+  {
+    "id": 7,
+    "name": "Elena Rivas",
+    "role": "Gerente Comercial",
+    "comment": "Una herramienta indispensable para cualquier empresa moderna. El soporte técnico es de primera clase.",
+    "stars": 4,
+    "avatar": "https://i.pravatar.cc/150?u=elena"
+  },
+  {
+    "id": 8,
+    "name": "Javier Montes",
+    "role": "Desarrollador Fullstack",
+    "comment": "La calidad de los servicios tecnológicos es impresionante. Código limpio y soluciones escalables.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=javier"
+  },
+  {
+    "id": 9,
+    "name": "Sofía Castro",
+    "role": "Viajera Frecuente",
+    "comment": "Gracias al tour por El Peñol pasamos un día inolvidable. Todo muy bien organizado y puntual.",
+    "stars": 5,
+    "avatar": "https://i.pravatar.cc/150?u=sofia"
+  },
+  {
+    "id": 10,
+    "name": "Ricardo Luna",
+    "role": "Dueño de Restaurante",
+    "comment": "El servicio comercial me ayudó a digitalizar mi menú y pedidos. Mis clientes están encantados.",
+    "stars": 4,
+    "avatar": "https://i.pravatar.cc/150?u=ricardo"
+  }
+]

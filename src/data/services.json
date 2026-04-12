@@ -2,22 +2,148 @@
   {
     "id": 1,
     "name": "Curso de Programación Web",
-    "description": "Aprende HTML, CSS y JavaScript desde cero",
+    "description": "Aprende HTML, CSS y JavaScript desde cero con proyectos reales.",
     "category": "Educación",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=500"
   },
   {
     "id": 2,
-    "name": "Tour en Medellín",
-    "description": "Recorrido turístico por la ciudad",
+    "name": "Tour Piedra del Peñol",
+    "description": "Vive la experiencia de subir los 740 escalones con la mejor vista.",
     "category": "Turismo",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://incatrilogytours-com.b-cdn.net/wp-content/uploads/2025/02/penol-portada.jpg"
   },
   {
     "id": 3,
-    "name": "Desarrollo de Apps",
-    "description": "Creación de aplicaciones móviles",
+    "name": "Desarrollo de Apps Móviles",
+    "description": "Creamos soluciones nativas y multiplataforma para tu negocio.",
     "category": "Tecnología",
-    "image": "https://via.placeholder.com/300"
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=500"
+  },
+  {
+    "id": 4,
+    "name": "Consultoría de Ecommerce",
+    "description": "Optimiza tus ventas online y mejora la conversión de tu tienda.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=500"
+  },
+  {
+    "id": 5,
+    "name": "Taller de Robótica",
+    "description": "Introducción a la ingeniería y electrónica para jóvenes entusiastas.",
+    "category": "Educación",
+    "image": "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?q=80&w=500"
+  },
+  {
+    "id": 6,
+    "name": "Escapada al Eje Cafetero",
+    "description": "Recorrido por fincas orgánicas con cata de café premium incluida.",
+    "category": "Turismo",
+    "image": "https://cincohorizontes.com/wp-content/uploads/2023/11/image_6487327-13.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Auditoría de Ciberseguridad",
+    "description": "Protege los datos de tu empresa con nuestros análisis de vulnerabilidad.",
+    "category": "Tecnología",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=500"
+  },
+  {
+    "id": 8,
+    "name": "Gestión de Punto de Venta",
+    "description": "Software integral para el manejo de inventarios y facturación.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=500"
+  },
+  {
+    "id": 9,
+    "name": "Máster en Data Science",
+    "description": "Domina Python y R para el análisis avanzado de grandes volúmenes de datos.",
+    "category": "Educación",
+    "image": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200327213048/How-to-Get-into-Masters-in-Data-Science-in-2020.png"
+  },
+  {
+    "id": 11,
+    "name": "Servicio de Cloud Computing",
+    "description": "Migración y soporte en AWS, Azure y Google Cloud para startups.",
+    "category": "Tecnología",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500"
+  },
+  {
+    "id": 12,
+    "name": "Estrategia de Branding",
+    "description": "Diseño de identidad visual y posicionamiento de marca en el mercado.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=500"
+  },
+  {
+    "id": 14,
+    "name": "Tour Ciudad Amurallada",
+    "description": "Historia y arquitectura en el corazón de Cartagena de Indias.",
+    "category": "Turismo",
+    "image": "https://images.unsplash.com/photo-1583531172005-814191b8b6c0?q=80&w=500"
+  },
+  {
+    "id": 16,
+    "name": "Marketing Digital 360",
+    "description": "Campañas en redes sociales, SEO y SEM para aumentar tus leads.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500"
+  },
+  {
+    "id": 17,
+    "name": "Diplomado en Liderazgo",
+    "description": "Desarrolla habilidades blandas para la gestión de equipos de alto rendimiento.",
+    "category": "Educación",
+    "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=500"
+  },
+  {
+    "id": 19,
+    "name": "IA para Negocios",
+    "description": "Implementación de chatbots y automatización de procesos con IA.",
+    "category": "Tecnología",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=500"
+  },
+  {
+    "id": 20,
+    "name": "Logística y Distribución",
+    "description": "Soluciones eficientes para el transporte nacional de mercancías.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=500"
+  },
+  {
+    "id": 21,
+    "name": "Taller de Fotografía",
+    "description": "Aprende el manejo de cámara réflex y edición en Lightroom.",
+    "category": "Educación",
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=500"
+  },
+  {
+    "id": 22,
+    "name": "Noche de Museos",
+    "description": "Recorrido nocturno por los principales centros culturales de la ciudad.",
+    "category": "Turismo",
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=500"
+  },
+  {
+    "id": 23,
+    "name": "Soporte IT Remoto",
+    "description": "Asistencia técnica inmediata para resolver problemas de software.",
+    "category": "Tecnología",
+    "image": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=500"
+  },
+  {
+    "id": 24,
+    "name": "Asesoría Legal Comercial",
+    "description": "Constitución de empresas y redacción de contratos mercantiles.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=500"
+  },
+  {
+    "id": 25,
+    "name": "Diseño de Interiores",
+    "description": "Transformamos espacios comerciales para mejorar la experiencia del cliente.",
+    "category": "Comercial",
+    "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=500"
   }
 ]
