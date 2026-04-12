@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Curso de Programación Web",
+    "description": "Aprende HTML, CSS y JavaScript desde cero",
+    "category": "Educación",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 2,
+    "name": "Tour en Medellín",
+    "description": "Recorrido turístico por la ciudad",
+    "category": "Turismo",
+    "image": "https://via.placeholder.com/300"
+  },
+  {
+    "id": 3,
+    "name": "Desarrollo de Apps",
+    "description": "Creación de aplicaciones móviles",
+    "category": "Tecnología",
+    "image": "https://via.placeholder.com/300"
+  }
+]
