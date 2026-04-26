@@ -1,55 +1,78 @@
 import { useState, useEffect } from "react"
-import { getCustomServices } from "../utils/localStorage"
+import { getCustomServices, getFavorites, saveFavorites } from "../utils/localStorage"
 import ServiceCard from "../components/ServiceCard"
 
 /**
- * Componente principal para visualizar y filtrar el catálogo de servicios.
+ * Componente Services: Representa el catálogo completo de la plataforma.
+ * Permite visualizar todos los servicios disponibles y gestionarlos como favoritos.
  */
 function Services() {
-  const [services, setServices] = useState([])
-  const [searchTerm, setSearchTerm] = useState("")
+  // --- ESTADOS DEL COMPONENTE ---
 
-  // Sincroniza el estado con los datos almacenados localmente al cargar la vista.
+  // Lista completa de servicios cargados desde la persistencia.
+  const [services, setServices] = useState([])
+  
+  // Lista de servicios marcados por el usuario para sincronizar el estado visual de las Cards.
+  const [favorites, setFavorites] = useState([])
+
+  // --- SINCRONIZACIÓN DE DATOS (useEffect) ---
+
+  /**
+   * Se ejecuta al montar el componente. 
+   * Recupera la fuente de verdad (LocalStorage) para poblar la interfaz.
+   */
   useEffect(() => {
-    const data = getCustomServices()
-    setServices(data)
+    setServices(getCustomServices())
+    setFavorites(getFavorites())
   }, [])
 
-  // Gestiona la búsqueda reactiva basada en el nombre o categoría del servicio.
-  const filteredServices = services.filter(service =>
-    service.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    service.category?.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  // --- LÓGICA DE INTERACCIÓN ---
+
+  /**
+   * Procesa la acción de agregar o remover un servicio de la lista de favoritos.
+   * Utiliza una lógica de "Toggle" (alternancia) basada en la existencia del ID.
+   */
+  const handleToggleFavorite = (service) => {
+    // Verificación de pertenencia: comprueba si el servicio ya está en el arreglo de favoritos.
+    const isAlreadyFavorite = favorites.some((fav) => fav.id === service.id);
+    let updatedFavorites;
+
+    if (isAlreadyFavorite) {
+      // Si ya es favorito, se crea un nuevo arreglo excluyendo este servicio (Remover).
+      updatedFavorites = favorites.filter((fav) => fav.id !== service.id);
+    } else {
+      // Si no es favorito, se añade al arreglo existente usando el operador de propagación (Agregar).
+      updatedFavorites = [...favorites, service];
+    }
+
+    // Actualización del estado local para reflejar cambios en la UI de forma reactiva.
+    setFavorites(updatedFavorites);
+    
+    // Persistencia de los cambios para mantener los datos tras recargar la página.
+    saveFavorites(updatedFavorites);
+  };
+
+  // --- ESTRUCTURA DE RENDERIZADO ---
 
   return (
-    <div className="p-6 max-w-7xl mx-auto min-h-screen">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-        <h2 className="text-3xl font-bold text-gray-800">Explora nuestros servicios</h2>
-        
-        {/* Captura la entrada del usuario para actualizar el término de búsqueda. */}
-        <input 
-          type="text" 
-          placeholder="Buscar por nombre o categoría..." 
-          className="p-2 border rounded-lg w-full md:w-80 shadow-sm outline-none focus:ring-2 focus:ring-blue-500"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+    <div className="p-6">
+      {/* Título de la sección de catálogo */}
+      <h2 className="text-2xl font-bold mb-6">Todos nuestros servicios</h2>
+      
+      {/* Contenedor Grid: Organiza las tarjetas de forma responsiva (1 col en móvil, 3 en escritorio). */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Iteración sobre el arreglo de servicios para generar los componentes hijos. */}
+        {services.map((service) => (
+          <ServiceCard 
+            key={service.id} 
+            service={service} 
+            // Determina dinámicamente si el botón de favorito debe aparecer activo.
+            isFavorite={favorites.some(fav => fav.id === service.id)}
+            // Inyecta la función de manejo de favoritos hacia el componente ServiceCard.
+            onToggleFavorite={handleToggleFavorite}
+          />
+        ))}
       </div>
-
-      {/* Renderizado condicional: muestra un mensaje de vacío o la cuadrícula de tarjetas de servicio. */}
-      {filteredServices.length === 0 ? (
-        <div className="text-center py-20">
-          <p className="text-gray-500 text-xl">No se encontraron servicios que coincidan.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service) => (
-            <ServiceCard 
-              key={service.id} 
-              service={service} 
-            />
-          ))}
-        </div>
-      )}
     </div>
   )
 }

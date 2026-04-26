@@ -1,58 +1,104 @@
-import { useParams } from "react-router-dom"
-import services from "../data/services.json"
-import { getFavorites, saveFavorites } from "../utils/localStorage"
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import services from "../data/services.json";
+import { getFavorites, saveFavorites } from "../utils/localStorage";
 
 /**
- * Componente para mostrar la información detallada de un servicio específico.
+ * Componente ServiceDetail: Renderiza la vista detallada de un servicio específico
+ * utilizando parámetros dinámicos de la URL.
  */
 function ServiceDetail() {
-  // Extrae el identificador del servicio desde los parámetros de la URL.
-  const { id } = useParams()
+  // --- HOOKS DE NAVEGACIÓN Y PARÁMETROS ---
 
-  // Busca el servicio correspondiente dentro del archivo de datos local.
-  const service = services.find(
-    (item) => item.id === parseInt(id)
-  )
+  // Obtiene el 'id' desde la ruta (ej: /service/1).
+  const { id } = useParams();
+  
+  // Hook para manipular el historial de navegación del navegador.
+  const navigate = useNavigate(); 
 
-  // Gestiona la validación y el almacenamiento del servicio en la lista de favoritos.
-  const handleFavorite = () => {
-    const favorites = getFavorites()
+  // --- ESTADO LOCAL ---
 
-    const exists = favorites.find(fav => fav.id === service.id)
+  // Estado booleano para manejar la apariencia del botón de favoritos en esta vista.
+  const [isFavorite, setIsFavorite] = useState(false);
 
-    if (exists) {
-      alert("Ya está en favoritos")
-      return
+  // --- LÓGICA DE BÚSQUEDA ---
+
+  // Busca el objeto del servicio que coincida con el ID de la URL (conversión a entero necesaria).
+  const service = services.find((item) => item.id === parseInt(id));
+
+  // --- EFECTOS (LIFECYCLE) ---
+
+  /**
+   * Verifica la existencia del servicio en LocalStorage al cargar el componente.
+   * Esto asegura que el estado 'isFavorite' sea coherente con los datos guardados.
+   */
+  useEffect(() => {
+    if (service) {
+      const favorites = getFavorites();
+      const exists = favorites.some(fav => fav.id === service.id);
+      setIsFavorite(exists);
+    }
+  }, [service]); // Dependencia del servicio actual.
+
+  // --- MANEJADORES DE EVENTOS ---
+
+  /**
+   * Gestiona la adición o eliminación del servicio actual en la lista de favoritos.
+   * Actualiza el estado local para reflejar el cambio visual inmediato.
+   */
+  const toggleFavorite = () => {
+    const favorites = getFavorites();
+    let updated;
+
+    if (isFavorite) {
+      // Caso: Eliminación por filtrado.
+      updated = favorites.filter(fav => fav.id !== service.id);
+      setIsFavorite(false);
+    } else {
+      // Caso: Inserción mediante el operador spread.
+      updated = [...favorites, service];
+      setIsFavorite(true);
     }
 
-    const updated = [...favorites, service]
-    saveFavorites(updated)
+    // Persistencia de la lista actualizada.
+    saveFavorites(updated);
+  };
 
-    alert("Agregado a favoritos")
-  }
+  // --- RENDERIZADO CONDICIONAL DE SEGURIDAD ---
 
-  // Renderiza una vista de error si el ID no coincide con ningún registro.
-  if (!service) {
-    return <h2 className="p-6">Servicio no encontrado</h2>
-  }
+  // Manejo de error en caso de que el ID en la URL no corresponda a ningún servicio existente.
+  if (!service) return <h2 className="p-6 text-center">Servicio no encontrado</h2>;
+
+  // --- ESTRUCTURA DE LA INTERFAZ (JSX) ---
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <img src={service.image} alt={service.name} className="w-full h-64 object-cover rounded" />
-
-      <h2 className="text-2xl font-bold mt-4">{service.name}</h2>
-
-      <p className="mt-4 text-gray-700">{service.description}</p>
-
-      {/* Disparador para la acción de guardado en favoritos. */}
-      <button
-        onClick={handleFavorite}
-        className="mt-6 bg-green-500 text-white px-4 py-2 rounded"
+    <div className="p-6 max-w-3xl mx-auto min-h-screen">
+      
+      {/* BOTÓN REGRESAR:
+          Utiliza navigate(-1) para enviar al usuario a la página anterior en su historial. */}
+      <button 
+        onClick={() => navigate(-1)} 
+        className="mb-6 text-blue-600 font-medium hover:underline flex items-center gap-1"
       >
-        Agregar a favoritos
+        ← Regresar
       </button>
+
+      {/* Imagen destacada del servicio con estilos de bordes redondeados y sombra. */}
+      <img 
+        src={service.image} 
+        alt={service.name} 
+        className="w-full h-80 object-cover rounded-2xl shadow-md" 
+      />
+
+      <div className="mt-6">
+        {/* Título y descripción detallada del servicio solicitado. */}
+        <h2 className="text-3xl font-bold text-gray-800">{service.name}</h2>
+        <p className="mt-4 text-gray-600 leading-relaxed text-lg">
+          {service.description}
+        </p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ServiceDetail
+export default ServiceDetail;
