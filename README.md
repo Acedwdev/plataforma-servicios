@@ -36,8 +36,17 @@ Ejecutar:
 npm run dev
 Capturas
 
-(Incluir imágenes del proyecto)
+<img width="1919" height="959" alt="image" src="https://github.com/user-attachments/assets/f4a3a952-109c-4f03-aa71-f2b1358409aa" />
+
 
 Autor
 
-[Edwin Acevedo]
+[JUAN PABLO BEDÓN 
+
+EDWIN ACEVEDO AYALA 
+
+JORGE DURAN OLIVARES 
+
+JORGE STIVEN PERDOMO SERRANO 
+
+WYLDER QUICENO OLAYA]
